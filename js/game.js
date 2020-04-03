@@ -1,3 +1,25 @@
+function moveUp() {
+ 	yPos -= 25;
+ 	fly.play();
+}
+
+function draw() {
+	context.drawImage(background, 0, 0);
+	for(var i = 0; i < pipe.length; i++) {
+	 	context.drawImage(pipetop, pipe[i].x, pipe[i].y);
+	 	context.drawImage(pipedown, pipe[i].x, pipe[i].y + pipetop.height + gap);
+
+	 	pipe[i].x--;
+
+		if(pipe[i].x == 125) {
+		   	pipe.push({
+			x : canvas.width,
+			y : Math.floor(Math.random() * pipetop.height) - pipetop.height
+		 	});
+		}
+	}
+}
+
 var canvas = document.getElementById("main");
 var context = canvas.getContext("2d");
 
@@ -20,26 +42,10 @@ score.src = "audio/score.mp3";
 var gap = 90;
 var xposition = 10;
 var yposition = 150;
-var gravity = 1;
-
-function draw(){
-	context.drawImage(background, 0, 0);
-	context.drawImage(pipetop, 100, 0);
-	context.drawImage(pipedown, 100, 0 + pipetop.height + gap);
-	context.drawImage(foreground, 0, canvas.height - foreground.height);
-	context.drawImage(bird, xposition, yposition);
-
-	yposition += gravity;
-	requestAnimationFrame(draw);
-}
-pipedown.onload = draw;
+var gravity = 1.5;
+var score = 0;
 
 document.addEventListener("keydown", moveUp);
-
-function moveUp() {
- 	yPos -= 25;
- 	fly.play();
-}
 
 var pipe = [];
 
