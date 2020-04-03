@@ -12,7 +12,7 @@ var scoremp3 = new Audio();
 bird.src = "img/flappy_bird_bird.png";
 background.src = "img/flappy_bird_bg.png";
 foreground.src = "img/flappy_bird_fg.png";
-pipetop.src = "img/flappy_bird_pipetop.png";
+pipetop.src = "img/flappy_bird_pipeUp.png";
 pipedown.src = "img/flappy_bird_pipeBottom.png";
 fly.src = "audio/fly.mp3";
 scoremp3.src = "audio/score.mp3";
@@ -32,7 +32,10 @@ pipe[0] = {
  	x : canvas.width,
  	y : 0
 }
-
+var xposition = 10;
+var yposition = 150;
+var gravity = 1.5;
+var score = 0;
 
 function draw() {
 	context.drawImage(background, 0, 0);
@@ -64,12 +67,11 @@ function draw() {
 	context.drawImage(foreground, 0, canvas.height - foreground.height);
 	context.drawImage(bird, xposition, yposition);
 
-	yposition += grav;
+	yposition += gravity;
 
 	context.fillStyle = "#000";
 	context.font = "24px Verdana";
 	context.fillText("Счет: " + score, 10, canvas.height - 20);
-
 	requestAnimationFrame(draw);
 }
-pipeBottom.onload = draw;
+pipedown.onload = draw;
