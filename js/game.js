@@ -17,8 +17,6 @@ pipedown.src = "img/flappy_bird_pipeBottom.png";
 fly.src = "audio/fly.mp3";
 score.src = "audio/score.mp3";
 
-
-
 var gap = 90;
 var xposition = 10;
 var yposition = 150;
@@ -35,3 +33,17 @@ function draw(){
 	requestAnimationFrame(draw);
 }
 pipedown.onload = draw;
+
+document.addEventListener("keydown", moveUp);
+
+function moveUp() {
+ 	yPos -= 25;
+ 	fly.play();
+}
+
+var pipe = [];
+
+pipe[0] = {
+ x : cvs.width,
+ y : 0
+}
