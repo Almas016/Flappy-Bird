@@ -6,12 +6,18 @@ var background = new Image();
 var foreground = new Image();
 var pipetop = new Image();
 var pipedown = new Image();
+var fly = new Audio();
+var score = new Audio();
 
-bird.src = "ing/flappy_bird_bird.png";
-background.src = "ing/flappy_bird_bg.png";
-foreground.src = "ing/flappy_bird_fg.png";
-pipetop.src = "ing/flappy_bird_pipeUp.png";
-pipedown.src = "ing/flappy_bird_pipeBottom.png";
+bird.src = "img/flappy_bird_bird.png";
+background.src = "img/flappy_bird_bg.png";
+foreground.src = "img/flappy_bird_fg.png";
+pipetop.src = "img/flappy_bird_pipeUp.png";
+pipedown.src = "img/flappy_bird_pipeBottom.png";
+fly.src = "audio/fly.mp3";
+score.src = "audio/score.mp3";
+
+
 
 var gap = 90;
 var xposition = 10;
